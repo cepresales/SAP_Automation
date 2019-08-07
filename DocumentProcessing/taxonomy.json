@@ -1,4 +1,4 @@
-﻿{
+{
   "DataContractVersion": "1.0",
   "DocumentTypes": [
     {
@@ -16,7 +16,7 @@
           "FieldId": "Group1.Category1.Invoice.Date",
           "FieldName": "Date",
           "IsMultiValue": false,
-          "Type": "Date",
+          "Type": 2,
           "DeriveFieldsFormat": "",
           "Components": [],
           "SetValues": []
@@ -25,7 +25,7 @@
           "FieldId": "Group1.Category1.Invoice.DueDate",
           "FieldName": "Due Date",
           "IsMultiValue": false,
-          "Type": "Date",
+          "Type": 2,
           "DeriveFieldsFormat": "",
           "Components": [],
           "SetValues": []
@@ -34,7 +34,7 @@
           "FieldId": "Group1.Category1.Invoice.Invoice#",
           "FieldName": "Invoice#",
           "IsMultiValue": false,
-          "Type": "Text",
+          "Type": 0,
           "DeriveFieldsFormat": "",
           "Components": [],
           "SetValues": []
@@ -43,7 +43,7 @@
           "FieldId": "Group1.Category1.Invoice.CustomerID",
           "FieldName": "Customer ID",
           "IsMultiValue": false,
-          "Type": "Text",
+          "Type": 0,
           "DeriveFieldsFormat": "",
           "Components": [],
           "SetValues": []
@@ -52,7 +52,7 @@
           "FieldId": "Group1.Category1.Invoice.Supplier",
           "FieldName": "Supplier",
           "IsMultiValue": false,
-          "Type": "Text",
+          "Type": 0,
           "DeriveFieldsFormat": "",
           "Components": [],
           "SetValues": []
@@ -61,7 +61,7 @@
           "FieldId": "Group1.Category1.Invoice.Subtotal",
           "FieldName": "Subtotal",
           "IsMultiValue": false,
-          "Type": "Text",
+          "Type": 0,
           "DeriveFieldsFormat": "",
           "Components": [],
           "SetValues": []
@@ -70,7 +70,7 @@
           "FieldId": "Group1.Category1.Invoice.TaxRate",
           "FieldName": "Tax Rate",
           "IsMultiValue": false,
-          "Type": "Text",
+          "Type": 0,
           "DeriveFieldsFormat": "",
           "Components": [],
           "SetValues": []
@@ -79,7 +79,7 @@
           "FieldId": "Group1.Category1.Invoice.TaxDue",
           "FieldName": "Tax Due",
           "IsMultiValue": false,
-          "Type": "Text",
+          "Type": 0,
           "DeriveFieldsFormat": "",
           "Components": [],
           "SetValues": []
@@ -88,7 +88,7 @@
           "FieldId": "Group1.Category1.Invoice.Total",
           "FieldName": "Total",
           "IsMultiValue": false,
-          "Type": "Text",
+          "Type": 0,
           "DeriveFieldsFormat": "",
           "Components": [],
           "SetValues": []
@@ -97,14 +97,14 @@
           "FieldId": "Group1.Category1.Invoice.LineItems",
           "FieldName": "LineItems",
           "IsMultiValue": true,
-          "Type": "Table",
+          "Type": 9,
           "DeriveFieldsFormat": "",
           "Components": [
             {
               "FieldId": "Group1.Category1.Invoice.LineItems.Description",
               "FieldName": "Description",
               "IsMultiValue": false,
-              "Type": "Text",
+              "Type": 0,
               "DeriveFieldsFormat": "",
               "Components": [],
               "SetValues": []
@@ -113,7 +113,7 @@
               "FieldId": "Group1.Category1.Invoice.LineItems.UnitPrice",
               "FieldName": "Unit Price",
               "IsMultiValue": false,
-              "Type": "Text",
+              "Type": 0,
               "DeriveFieldsFormat": "",
               "Components": [],
               "SetValues": []
@@ -122,7 +122,7 @@
               "FieldId": "Group1.Category1.Invoice.LineItems.QTY",
               "FieldName": "QTY",
               "IsMultiValue": false,
-              "Type": "Number",
+              "Type": 1,
               "DeriveFieldsFormat": "",
               "Components": [],
               "SetValues": []
@@ -131,7 +131,7 @@
               "FieldId": "Group1.Category1.Invoice.LineItems.Taxed",
               "FieldName": "Taxed",
               "IsMultiValue": false,
-              "Type": "Boolean",
+              "Type": 7,
               "DeriveFieldsFormat": "",
               "Components": [],
               "SetValues": []
@@ -140,7 +140,165 @@
               "FieldId": "Group1.Category1.Invoice.LineItems.Amount",
               "FieldName": "Amount",
               "IsMultiValue": false,
-              "Type": "Text",
+              "Type": 0,
+              "DeriveFieldsFormat": "",
+              "Components": [],
+              "SetValues": []
+            }
+          ],
+          "SetValues": []
+        }
+      ]
+    },
+    {
+      "DocumentTypeId": "UiPath.MLModel.InvoiceAi",
+      "Group": "UiPath",
+      "Category": "MLModel",
+      "Name": "InvoiceAi",
+      "OptionalUniqueIdentifier": null,
+      "TypeField": {
+        "FieldId": "UiPath.MLModel.InvoiceAiDocumentType",
+        "FieldName": "Document Type"
+      },
+      "Fields": [
+        {
+          "FieldId": "UiPath.MLModel.InvoiceAi.name",
+          "FieldName": "Name",
+          "IsMultiValue": false,
+          "Type": 0,
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": []
+        },
+        {
+          "FieldId": "UiPath.MLModel.InvoiceAi.vendor-addr",
+          "FieldName": "Vendor-addr",
+          "IsMultiValue": false,
+          "Type": 0,
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": []
+        },
+        {
+          "FieldId": "UiPath.MLModel.InvoiceAi.billing-addr",
+          "FieldName": "Billing-addr",
+          "IsMultiValue": false,
+          "Type": 0,
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": []
+        },
+        {
+          "FieldId": "UiPath.MLModel.InvoiceAi.shipping-addr",
+          "FieldName": "Shipping-addr",
+          "IsMultiValue": false,
+          "Type": 0,
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": []
+        },
+        {
+          "FieldId": "UiPath.MLModel.InvoiceAi.invoice-no",
+          "FieldName": "Invoice-no",
+          "IsMultiValue": false,
+          "Type": 0,
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": []
+        },
+        {
+          "FieldId": "UiPath.MLModel.InvoiceAi.po-no",
+          "FieldName": "Po-no",
+          "IsMultiValue": false,
+          "Type": 0,
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": []
+        },
+        {
+          "FieldId": "UiPath.MLModel.InvoiceAi.date",
+          "FieldName": "Date",
+          "IsMultiValue": false,
+          "Type": 0,
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": []
+        },
+        {
+          "FieldId": "UiPath.MLModel.InvoiceAi.total",
+          "FieldName": "Total",
+          "IsMultiValue": false,
+          "Type": 0,
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": []
+        },
+        {
+          "FieldId": "UiPath.MLModel.InvoiceAi.tax",
+          "FieldName": "Tax",
+          "IsMultiValue": false,
+          "Type": 0,
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": []
+        },
+        {
+          "FieldId": "UiPath.MLModel.InvoiceAi.currency",
+          "FieldName": "Currency",
+          "IsMultiValue": false,
+          "Type": 0,
+          "DeriveFieldsFormat": "",
+          "Components": [],
+          "SetValues": []
+        },
+        {
+          "FieldId": "UiPath.MLModel.InvoiceAi.items",
+          "FieldName": "Items",
+          "IsMultiValue": false,
+          "Type": 9,
+          "DeriveFieldsFormat": "",
+          "Components": [
+            {
+              "FieldId": "UiPath.MLModel.InvoiceAi.items.Body.description",
+              "FieldName": "Description",
+              "IsMultiValue": false,
+              "Type": 0,
+              "DeriveFieldsFormat": "",
+              "Components": [],
+              "SetValues": []
+            },
+            {
+              "FieldId": "UiPath.MLModel.InvoiceAi.items.Body.unit-price",
+              "FieldName": "Unit-price",
+              "IsMultiValue": false,
+              "Type": 0,
+              "DeriveFieldsFormat": "",
+              "Components": [],
+              "SetValues": []
+            },
+            {
+              "FieldId": "UiPath.MLModel.InvoiceAi.items.Body.quantity",
+              "FieldName": "Quantity",
+              "IsMultiValue": false,
+              "Type": 0,
+              "DeriveFieldsFormat": "",
+              "Components": [],
+              "SetValues": []
+            },
+            {
+              "FieldId": "UiPath.MLModel.InvoiceAi.items.Body.line-amount",
+              "FieldName": "Line-amount",
+              "IsMultiValue": false,
+              "Type": 0,
+              "DeriveFieldsFormat": "",
+              "Components": [],
+              "SetValues": []
+            },
+            {
+              "FieldId": "UiPath.MLModel.InvoiceAi.items.Body.item-po-no",
+              "FieldName": "Item-po-no",
+              "IsMultiValue": false,
+              "Type": 0,
               "DeriveFieldsFormat": "",
               "Components": [],
               "SetValues": []
@@ -156,6 +314,12 @@
       "Name": "Group1",
       "Categories": [
         "Category1"
+      ]
+    },
+    {
+      "Name": "UiPath",
+      "Categories": [
+        "MLModel"
       ]
     }
   ],
