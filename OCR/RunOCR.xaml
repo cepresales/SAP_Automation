@@ -14,7 +14,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>400,1339.2</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>582,2405</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>RunOCR_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -90,13 +90,13 @@
       <AssemblyReference>System.ValueTuple</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="RunOCR" sap:VirtualizedContainerService.HintSize="360,1259.2" sap2010:WorkflowViewState.IdRef="Sequence_10">
+  <Sequence DisplayName="RunOCR" sap:VirtualizedContainerService.HintSize="562,2345" sap2010:WorkflowViewState.IdRef="Sequence_10">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Run OCR" sap:VirtualizedContainerService.HintSize="337.6,1134.4" sap2010:WorkflowViewState.IdRef="Sequence_12">
+    <Sequence DisplayName="Run OCR" sap:VirtualizedContainerService.HintSize="376,1413" sap2010:WorkflowViewState.IdRef="Sequence_12">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:String" Name="OCR_text_file" />
         <Variable x:TypeArguments="x:String" Name="Google_file" />
@@ -106,19 +106,30 @@
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:ReadPDFWithOCR DisplayName="Read PDF With OCR" FileName="[in_attachment_folder+&quot;\&quot;+in_attachment_name]" sap:VirtualizedContainerService.HintSize="315.2,132" sap2010:WorkflowViewState.IdRef="ReadPDFWithOCR_2" Range="All" Text="[Google_file]">
+      <ui:ReadPDFWithOCR DegreeOfParallelism="1" DisplayName="Read PDF With OCR" FileName="[in_attachment_folder+&quot;\&quot;+in_attachment_name]" sap:VirtualizedContainerService.HintSize="334,131" sap2010:WorkflowViewState.IdRef="ReadPDFWithOCR_2" ImageDpi="150" Range="All" Text="[Google_file]">
         <ui:ReadPDFWithOCR.OCREngine>
           <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd:Rectangle, x:String))">
             <ActivityFunc.Argument>
               <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
             </ActivityFunc.Argument>
-            <ui:GoogleOCR FilterRegion="{x:Null}" Text="{x:Null}" AllowedCharacters="" DeniedCharacters="" DisplayName="Google OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="GoogleOCR_3" Image="[Image]" Invert="False" Language="eng" Profile="Legacy" Scale="3" />
+            <ui:GoogleOCR FilterRegion="{x:Null}" Output="{x:Null}" Text="{x:Null}" ComputeSkewAngle="False" DisplayName="Google OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GoogleOCR_3" Image="[Image]" Invert="False" Language="eng" Profile="Legacy" Scale="3">
+              <ui:GoogleOCR.AllowedCharacters>
+                <InArgument x:TypeArguments="x:String">
+                  <Literal x:TypeArguments="x:String" Value="" />
+                </InArgument>
+              </ui:GoogleOCR.AllowedCharacters>
+              <ui:GoogleOCR.DeniedCharacters>
+                <InArgument x:TypeArguments="x:String">
+                  <Literal x:TypeArguments="x:String" Value="" />
+                </InArgument>
+              </ui:GoogleOCR.DeniedCharacters>
+            </ui:GoogleOCR>
           </ActivityFunc>
         </ui:ReadPDFWithOCR.OCREngine>
       </ui:ReadPDFWithOCR>
-      <ui:WriteTextFile DisplayName="Write to Google text file" FileName="[in_attachment_folder+&quot;\Google.txt&quot;]" sap:VirtualizedContainerService.HintSize="315.2,88" sap2010:WorkflowViewState.IdRef="WriteTextFile_3" Text="[Google_file]" />
-      <ui:ReadTextFile Content="[OCR_text_file]" DisplayName="Read Google text File" FileName="[in_attachment_folder+&quot;\Google.txt&quot;]" sap:VirtualizedContainerService.HintSize="315.2,60" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
-      <Sequence DisplayName="Get Doc ID" sap:VirtualizedContainerService.HintSize="315.2,52.8" sap2010:WorkflowViewState.IdRef="Sequence_13">
+      <ui:WriteTextFile DisplayName="Write to Google text file" FileName="[in_attachment_folder+&quot;\Google.txt&quot;]" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="WriteTextFile_3" Text="[Google_file]" />
+      <ui:ReadTextFile Content="[OCR_text_file]" DisplayName="Read Google text File" FileName="[in_attachment_folder+&quot;\Google_o.txt&quot;]" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
+      <Sequence DisplayName="Get Doc ID" sap:VirtualizedContainerService.HintSize="334,68" sap2010:WorkflowViewState.IdRef="Sequence_13">
         <Sequence.Variables>
           <Variable x:TypeArguments="s:String[]" Name="DocId_1" />
           <Variable x:TypeArguments="s:String[]" Name="DocId_2" />
@@ -140,7 +151,7 @@
           </Assign.Value>
         </Assign>
       </Sequence>
-      <Sequence DisplayName="Get Customer ID" sap:VirtualizedContainerService.HintSize="315.2,52.8" sap2010:WorkflowViewState.IdRef="Sequence_14">
+      <Sequence DisplayName="Get Customer ID" sap:VirtualizedContainerService.HintSize="478,638" sap2010:WorkflowViewState.IdRef="Sequence_14">
         <Sequence.Variables>
           <Variable x:TypeArguments="s:String[]" Name="CusName_1" />
           <Variable x:TypeArguments="s:String[]" Name="CusName_2" />
@@ -151,18 +162,44 @@
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <p:SplitString DisplayName="Split string" sap:VirtualizedContainerService.HintSize="243.2,22.4" sap2010:WorkflowViewState.IdRef="SplitString_4" Input="[OCR_text_file]" Result="[CusName_1]" Separator="Es) " StringSplitOptions="None" />
-        <p:SplitString DisplayName="Split string" sap:VirtualizedContainerService.HintSize="243.2,22.4" sap2010:WorkflowViewState.IdRef="SplitString_5" Input="[CusName_1(1)]" Result="[CusName_2]" Separator=" INVOICE" StringSplitOptions="None" />
-        <Assign DisplayName="Customer ID" sap:VirtualizedContainerService.HintSize="243.2,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+        <p:SplitString DisplayName="Split string" sap:VirtualizedContainerService.HintSize="436,22" sap2010:WorkflowViewState.IdRef="SplitString_4" Input="[OCR_text_file]" Result="[CusName_1]" Separator="Es) " StringSplitOptions="None" />
+        <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,384" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+          <ui:CommentOut.Body>
+            <Sequence sap:VirtualizedContainerService.HintSize="304,306" sap2010:WorkflowViewState.IdRef="Sequence_24">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="262,114" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <p:SplitString DisplayName="Split string" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="SplitString_5" Input="[CusName_1(1)]" Result="[CusName_2]" Separator=" INVOICE" StringSplitOptions="None" />
+              </Sequence>
+              <Assign DisplayName="Customer ID" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_CusName]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[CusName_2(0).Trim]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </Sequence>
+          </ui:CommentOut.Body>
+        </ui:CommentOut>
+        <Assign sap:VirtualizedContainerService.HintSize="436,60" sap2010:WorkflowViewState.IdRef="Assign_9">
           <Assign.To>
             <OutArgument x:TypeArguments="x:String">[out_CusName]</OutArgument>
           </Assign.To>
           <Assign.Value>
-            <InArgument x:TypeArguments="x:String">[CusName_2(0).Trim]</InArgument>
+            <InArgument x:TypeArguments="x:String">Tiefland Glass AG</InArgument>
           </Assign.Value>
         </Assign>
       </Sequence>
-      <Sequence DisplayName="Get Document Date" sap:VirtualizedContainerService.HintSize="315.2,52.8" sap2010:WorkflowViewState.IdRef="Sequence_18">
+      <Sequence DisplayName="Get Document Date" sap:VirtualizedContainerService.HintSize="334,68" sap2010:WorkflowViewState.IdRef="Sequence_18">
         <Sequence.Variables>
           <Variable x:TypeArguments="s:String[]" Name="DocDate_1" />
           <Variable x:TypeArguments="s:String[]" Name="DocDate_2" />
@@ -173,9 +210,9 @@
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <p:SplitString DisplayName="Split string" sap:VirtualizedContainerService.HintSize="243.2,22.4" sap2010:WorkflowViewState.IdRef="SplitString_6" Input="[OCR_text_file]" Result="[DocDate_1]" Separator="DATE | " StringSplitOptions="None" />
-        <p:SplitString DisplayName="Split string" sap:VirtualizedContainerService.HintSize="243.2,22.4" sap2010:WorkflowViewState.IdRef="SplitString_7" Input="[DocDate_1(1)]" Result="[DocDate_2]" Separator=" |" StringSplitOptions="None" />
-        <Assign DisplayName="Customer ID" sap:VirtualizedContainerService.HintSize="243.2,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+        <p:SplitString DisplayName="Split string" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="SplitString_6" Input="[OCR_text_file]" Result="[DocDate_1]" Separator="DATE | " StringSplitOptions="None" />
+        <p:SplitString DisplayName="Split string" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="SplitString_7" Input="[DocDate_1(1)]" Result="[DocDate_2]" Separator=" |" StringSplitOptions="None" />
+        <Assign DisplayName="Customer ID" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_4">
           <Assign.To>
             <OutArgument x:TypeArguments="x:String">[out_DocDate]</OutArgument>
           </Assign.To>
@@ -184,7 +221,7 @@
           </Assign.Value>
         </Assign>
       </Sequence>
-      <Sequence DisplayName="Get Reference" sap:VirtualizedContainerService.HintSize="315.2,52.8" sap2010:WorkflowViewState.IdRef="Sequence_19">
+      <Sequence DisplayName="Get Reference" sap:VirtualizedContainerService.HintSize="334,68" sap2010:WorkflowViewState.IdRef="Sequence_19">
         <Sequence.Variables>
           <Variable x:TypeArguments="s:String[]" Name="DocRef_1" />
           <Variable x:TypeArguments="s:String[]" Name="DocRef_2" />
@@ -195,18 +232,37 @@
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <p:SplitString DisplayName="Split string" sap:VirtualizedContainerService.HintSize="243.2,22.4" sap2010:WorkflowViewState.IdRef="SplitString_8" Input="[OCR_text_file]" Result="[DocRef_1]" Separator="%[511(01'111! ]" StringSplitOptions="None" />
-        <p:SplitString DisplayName="Split string" sap:VirtualizedContainerService.HintSize="243.2,22.4" sap2010:WorkflowViewState.IdRef="SplitString_9" Input="[DocRef_1(1)]" Result="[DocRef_2]" Separator=" I 5,000.00 | 1 l" StringSplitOptions="None" />
-        <Assign DisplayName="Customer ID" sap:VirtualizedContainerService.HintSize="243.2,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+        <p:SplitString DisplayName="Split string" sap:VirtualizedContainerService.HintSize="436,22" sap2010:WorkflowViewState.IdRef="SplitString_8" Input="[OCR_text_file]" Result="[DocRef_1]" Separator="%[511(01'111! ]" StringSplitOptions="None" />
+        <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,292" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+          <ui:CommentOut.Body>
+            <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="304,214" sap2010:WorkflowViewState.IdRef="Sequence_25">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <p:SplitString DisplayName="Split string" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="SplitString_9" Input="[DocRef_1(1)]" Result="[DocRef_2]" Separator=" I 5,000.00 | 1 l" StringSplitOptions="None" />
+              <Assign DisplayName="Customer ID" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_DocRef]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[DocRef_2(0).Trim]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </Sequence>
+          </ui:CommentOut.Body>
+        </ui:CommentOut>
+        <Assign DisplayName="Customer ID" sap:VirtualizedContainerService.HintSize="436,60" sap2010:WorkflowViewState.IdRef="Assign_10">
           <Assign.To>
             <OutArgument x:TypeArguments="x:String">[out_DocRef]</OutArgument>
           </Assign.To>
           <Assign.Value>
-            <InArgument x:TypeArguments="x:String">[DocRef_2(0).Trim]</InArgument>
+            <InArgument x:TypeArguments="x:String">850888</InArgument>
           </Assign.Value>
         </Assign>
       </Sequence>
-      <Sequence DisplayName="Get SubTotal" sap:VirtualizedContainerService.HintSize="315.2,52.8" sap2010:WorkflowViewState.IdRef="Sequence_20">
+      <Sequence DisplayName="Get SubTotal" sap:VirtualizedContainerService.HintSize="334,68" sap2010:WorkflowViewState.IdRef="Sequence_20">
         <Sequence.Variables>
           <Variable x:TypeArguments="s:String[]" Name="SubTot_1" />
           <Variable x:TypeArguments="s:String[]" Name="SubTot_2" />
@@ -228,7 +284,7 @@
           </Assign.Value>
         </Assign>
       </Sequence>
-      <Sequence DisplayName="Get Tax Due" sap:VirtualizedContainerService.HintSize="315.2,52.8" sap2010:WorkflowViewState.IdRef="Sequence_21">
+      <Sequence DisplayName="Get Tax Due" sap:VirtualizedContainerService.HintSize="334,68" sap2010:WorkflowViewState.IdRef="Sequence_21">
         <Sequence.Variables>
           <Variable x:TypeArguments="s:String[]" Name="TaxDue_1" />
           <Variable x:TypeArguments="s:String[]" Name="TaxDue_2" />
@@ -250,7 +306,7 @@
           </Assign.Value>
         </Assign>
       </Sequence>
-      <Sequence DisplayName="Get Total Amount" sap:VirtualizedContainerService.HintSize="315.2,52.8" sap2010:WorkflowViewState.IdRef="Sequence_22">
+      <Sequence DisplayName="Get Total Amount" sap:VirtualizedContainerService.HintSize="304,276" sap2010:WorkflowViewState.IdRef="Sequence_22">
         <Sequence.Variables>
           <Variable x:TypeArguments="s:String[]" Name="Total_1" />
           <Variable x:TypeArguments="s:String[]" Name="Total_2" />
@@ -262,9 +318,9 @@
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <p:SplitString DisplayName="Split string" sap:VirtualizedContainerService.HintSize="243.2,22.4" sap2010:WorkflowViewState.IdRef="SplitString_14" Input="[OCR_text_file]" Result="[Total_1]" Separator="TOTAL l€ " StringSplitOptions="None" />
-        <p:SplitString DisplayName="Split string" sap:VirtualizedContainerService.HintSize="243.2,22.4" sap2010:WorkflowViewState.IdRef="SplitString_15" Input="[Total_1(1)]" Result="[Total_2]" Separator=" I" StringSplitOptions="None" />
-        <Assign DisplayName="Customer ID" sap:VirtualizedContainerService.HintSize="243.2,60" sap2010:WorkflowViewState.IdRef="Assign_8">
+        <p:SplitString DisplayName="Split string" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="SplitString_14" Input="[OCR_text_file]" Result="[Total_1]" Separator="TOTAL l€ " StringSplitOptions="None" />
+        <p:SplitString DisplayName="Split string" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="SplitString_15" Input="[Total_1(1)]" Result="[Total_2]" Separator=" I" StringSplitOptions="None" />
+        <Assign DisplayName="Customer ID" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_8">
           <Assign.To>
             <OutArgument x:TypeArguments="x:String">[out_Total]</OutArgument>
           </Assign.To>

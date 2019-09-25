@@ -1,13 +1,12 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="ConnectEnterprise" mva:VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="ConnectEnterprise_1"
-xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" 
-xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
-xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" 
-xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" 
-xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" 
-xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" 
-xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" 
-xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="ApproveInvoice" mva:VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="ApproveInvoice_1"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" 
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+ xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" 
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" 
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" 
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" 
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <TextExpression.NamespacesForImplementation>
         <sco:Collection x:TypeArguments="x:String">
             <x:String>System.Activities</x:String>
@@ -28,9 +27,9 @@ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
             <x:String>System.Net.Mail</x:String>
             <x:String>System.Xml</x:String>
             <x:String>System.Xml.Linq</x:String>
-            <x:String>System.Windows.Markup</x:String>
             <x:String>UiPath.Core</x:String>
             <x:String>UiPath.Core.Activities</x:String>
+            <x:String>System.Windows.Markup</x:String>
         </sco:Collection>
     </TextExpression.NamespacesForImplementation>
     <TextExpression.ReferencesForImplementation>
@@ -53,16 +52,11 @@ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
             <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
         </sco:Collection>
     </TextExpression.ReferencesForImplementation>
-    <Flowchart DisplayName="ConnectEnterprise" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+    <Sequence DisplayName="ApproveInvoice" sap2010:WorkflowViewState.IdRef="Sequence_1">
         <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
-                <av:Size x:Key="ShapeSize">60,75.2</av:Size>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <Flowchart.StartNode>
-            <x:Null />
-        </Flowchart.StartNode>
-    </Flowchart>
+    </Sequence>
 </Activity>

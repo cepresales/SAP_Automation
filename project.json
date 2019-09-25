@@ -4,24 +4,25 @@
   "main": "Main.xaml",
   "dependencies": {
     "Microsoft.Activities": "[1.0.1]",
-    "UiPath.ComputerVision.Activities": "[2.0.1]",
+    "UiPath.ComputerVision.Activities": "[2.1.0]",
     "UiPath.Database.Activities": "[1.2.6863.32528]",
-    "UiPath.Excel.Activities": "[2.6.2]",
-    "UiPath.IntelligentOCR.Activities": "2.3.0",
-    "UiPath.MachineLearningExtractor": "[1.0.0-alpha.440405]",
-    "UiPath.Mail.Activities": "[1.5.1]",
-    "UiPath.OmniPage.Activities": "[1.0.0]",
-    "UiPath.PDF.Activities": "[2.1.0]",
-    "UiPath.SAP.BAPI.Activities": "[2.1.0]",
-    "UiPath.System.Activities": "[19.7.0]",
-    "UiPath.UIAutomation.Activities": "[19.7.0]",
-    "UiPathTeam.MLModel.Activities": "[1.0.7133.1585]",
+    "UiPath.Excel.Activities": "[2.6.3]",
+    "UiPath.IntelligentOCR.Activities": "3.0.0",
+    "UiPath.MachineLearningExtractor": "[1.0.0-beta.475509]",
+    "UiPath.Mail.Activities": "[1.6.0]",
+    "UiPath.OmniPage.Activities": "[1.2.0-beta.522996]",
+    "UiPath.PDF.Activities": "[3.0.0]",
+    "UiPath.Persistence.Activities": "[1.0.0-ce]",
+    "UiPath.SAP.BAPI.Activities": "[2.2.0]",
+    "UiPath.System.Activities": "[19.8.0]",
+    "UiPath.UIAutomation.Activities": "[19.8.0-ce]",
+    "UiPathTeam.MLModel.Activities": "[1.1.7171.26367]",
     "UiPathTeam.SimpleDocumentDataExtraction.Activities": "2.0.0"
   },
   "webServices": [],
   "schemaVersion": "4.0",
   "studioVersion": "19.7.0.74",
-  "projectVersion": "1.0.7047.14806",
+  "projectVersion": "1.0.7206.26765",
   "runtimeOptions": {
     "autoDispose": false,
     "isPausable": true,
@@ -39,7 +40,12 @@
     "libraryOptions": {
       "includeOriginalXaml": false,
       "privateWorkflows": []
-    }
+    },
+    "fileInfos": []
+  },
+  "arguments": {
+    "input": [],
+    "output": []
   },
   "expressionLanguage": "VisualBasic"
 }
